@@ -1,5 +1,6 @@
 {
 	"identity" : {
+		"title": "Etat Civil",
 		"form": {
 			"tooltip": "L'état-civil doit correspondre aux informations figurant sur votre passeport",
 			"foreignerNumber": "Numéro étranger",
@@ -27,7 +28,10 @@
             "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance",
             "civilStatusAct": "Document(s) d'état-civil du parent {{index}}",
             "civilStatusAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
-            "civilStatusAct.tooltip": "Merci de joindre un extrait de l'acte d'état-civil avec filiation ou une copie intégrale de l'acte d'état-civil"
+            "civilStatusAct.tooltip": "Merci de joindre un extrait de l'acte d'état-civil avec filiation ou une copie intégrale de l'acte d'état-civil",
+            "button.validate": "Suivant",
+            "button.cancel": "Précedent"
+            
 		}
 	}
 }

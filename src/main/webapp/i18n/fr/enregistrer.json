@@ -1,0 +1,21 @@
+{
+    "enregistrer": {
+        "title": "Enregistrement de la déclaration",
+        "form": {
+        	"visa.id": "N° de visa",
+            "visa.id.placeholder": "Numéro de visa",
+            "old.password": "Ancien mot de passe",
+            "old.password.placeholder": "Ancien mot de passe",
+            "new.password": "Nouveau mot de passe",
+            "new.password.placeholder": "Nouveau mot de passe",
+            "new.password.confirmation": "Confirmation du nouveau mot de passe",
+            "new.password.confirmation.placeholder": "Confirmation du nouveau mot de passe",
+            "button": "Valider"
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Erreur d'authentification!</strong> Veuillez vérifier vos identifiants de connexion."
+            }
+        }
+    }
+}

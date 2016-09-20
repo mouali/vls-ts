@@ -1,0 +1,114 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="procedure.title">Title</h4>
+    </div>
+    <br>
+    <steps-menu stepnumber="2"></steps-menu>
+    <br><br>
+
+	<form name="addressForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+	
+		<div class="row">
+			<div class="col-xs-1 col-xs-offset-1">
+		    	<div class="step-number-align">
+		    		<div class="step-number">2</div>
+		    	</div>
+		    </div>
+		    <div class="col-xs-10 form-title-text">
+		    	<p translate="procedure.address.step.long" ng-if="!address.modeV2">Address</p>
+		    	<p translate="procedure.address.step.long.{{address.valid}}" ng-if="address.modeV2">Address</p>
+		    </div>
+		</div>
+		<br>
+	    <div class="row" ng-if="!readOnlyMode">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+		        
+		        <address-form-light ng-model="address" with-tooltip="true"></address-form-light>
+		        
+		        <div class="form-group">
+		            <label translate="address.form.phone" for="field_phone">Phone</label>
+		            <input type="text" class="form-control" name="phone" id="field_phone" ng-model="address.phone" required>
+		            <div ng-show="addressForm.phone.$dirty && addressForm.phone.$invalid">
+		                <p class="help-block" ng-show="addressForm.phone.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="address.form.email" for="field_email">Email</label>
+		            <input type="text" class="form-control" name="email" id="field_email" ng-model="address.email" required>
+		            <div ng-show="addressForm.email.$dirty && addressForm.email.$invalid">
+		                <p class="help-block" ng-show="addressForm.email.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
+		            <tooltip tooltip-text='address.form.contactType.tooltip'></tooltip>
+			        <checkbox-contact-type ng-model="address.contactType"></checkbox-contact-type>
+		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
+		                <p class="help-block" ng-show="addressForm.contactType.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div ng-if="needDocuments && !readOnlyMode">
+			<br>
+			<div class="row">
+				<div class="col-xs-1 col-xs-offset-1">
+			    	
+			    </div>
+			    <div class="col-xs-10 form-title-text">
+					<p translate="address.form.document.title">Address documents</p>
+			    </div>
+			</div>
+		    <br>
+		    <div class="row">
+				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+				    <div class="form-group">
+					    <label translate="address.form.residency"></label>
+						<tooltip tooltip-text="address.form.residency.tooltip"></tooltip>
+					    <file-upload ng-model="address.documents" doc-type="residency" placeholder-key="address.form.residency.placeholder"></file-upload>
+					</div>
+			   	</div>
+			</div>
+		</div>
+		<div class="row" ng-if="readOnlyMode">
+			<div class="col-xs-8 col-xs-offset-3 col-sm-6 col-sm-offset-5">
+				<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
+			    <div class="form-group">
+			        <label translate="address.form.phone">Phone</label> : <span>{{::address.phone}}</span>
+			    </div>
+			    <div class="form-group" ng-if="!isAgent">
+			        <label translate="address.form.email">Email</label> : <span>{{::address.email}}</span>
+			    </div>
+				<div class="form-group">
+		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
+		            <tooltip tooltip-text='address.form.contactType.tooltip'></tooltip>
+			        <checkbox-contact-type ng-model="address.contactType"></checkbox-contact-type>
+		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
+		                <p class="help-block" ng-show="addressForm.contactType.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+			</div>
+		</div>
+		<br>
+	    <div class="row row-center">
+        	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+       		<button ng-if="currentApplicationBackup" type="button" class="btn btn-danger btn-right" translate="global.button.cancel" ng-click="cancel()">Cancel</button>
+       		<button ng-if="readOnlyMode && !address.modeV2" type="button" class="btn btn-danger btn-right" translate="global.button.report" ng-click="report()">Report</button>
+       		<button ng-if="readOnlyMode && address.modeV2" type="button" class="btn btn-danger btn-right" translate="global.button.modify" ng-click="modify()">Report</button>
+        	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
+        			 ng-disabled="addressForm.$invalid || addressForm.$submitted">Continue</button>
+        </div>
+	</form>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

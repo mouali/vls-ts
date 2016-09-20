@@ -31,6 +31,7 @@ angular.module('sejourApp')
         $scope.logout = function () {
         	$scope.account = null;
             Auth.logout();
-            $state.reload();
+            //$state.reload();
+            $state.go('login');
         };
     });

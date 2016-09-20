@@ -1,156 +1,114 @@
-<div ng-cloak>
-    <div class="row title-main title-underline">
-    	<h4 translate="procedure.title">Title</h4>
-    </div>
-    <br>
-    <steps-menu stepnumber="1"></steps-menu>
-    <br><br>
+<div>
 
-	<form name="identityForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;<a href="#/">Mes d&eacute;marches</a>&nbsp;>&nbsp; D&eacute;claration de mon arriv&eacute;e</h6>
+	<br/>
 	
-		<div class="row">
-			<div class="col-xs-1 col-xs-offset-1">
-		    	<div class="step-number-align">
-		    		<div class="step-number">1</div>
-		    	</div>
-		    </div>
-		    <div class="col-xs-10 form-title-text">
-		    	<p translate="procedure.identity.step.long" ng-if="!identity.modeV2">Identity</p>
-		    	<p translate="procedure.identity.step.long.{{identity.valid}}" ng-if="identity.modeV2">Identity</p>
-		    </div>
-		</div>
-		<br>
-		<div class="row" ng-if="!readOnlyMode">
-			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-			    
-				<identity-form-light ng-model="identity" with-tooltip="true"></identity-form-light>
+	<div class="col-md-10 col-md-offset-1">	
+
+    	<steps-menu stepnumber="2"></steps-menu>
+    
+	    <div class="row">
+	    
+			<div class="title-main title-underline">
+				<h4 translate="identity.title">title</h4>
+			</div>
+			
+			<form class="form-horizontal">
+			
+				<span>V&eacute;rifiez vos informations d'&eacute;tat civil. En cas d'erreur, contactez l'<a href="http://ofii.fr" target="_blank">OFII</a>.</span><br/><br/>
 				
-			    <div class="form-group">
-			        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
-			        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" required>
-			        <div ng-show="identityForm.passportNumber.$dirty && identityForm.passportNumber.$invalid">
-			            <p class="help-block" ng-show="identityForm.passportNumber.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group" ng-if="needResidencyCountry">
-			        <label translate="identity.form.residencyCountry" for="field_residencyCountry">ResidencyCountry</label>
-			        <select-country name="residencyCountry" id="field_residencyCountry" ng-model="identity.residencyCountry" ng-disabled="identity.changed" required></select-country>
-			        <div ng-show="identityLightForm.residencyCountry.$dirty && identityLightForm.residencyCountry.$invalid">
-			            <p class="help-block" ng-show="identityLightForm.residencyCountry.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-				<div class="form-group">
-			        <label translate="identity.form.maritalStatus" for="field_maritalStatus">Marital status</label>
-			        <select-marital-status field-name="maritalStatus" field-id="field_maritalStatus" ng-model="identity.maritalStatus" required></select-marital-status>
-			        <div ng-show="identityForm.maritalStatus.$dirty && identityForm.maritalStatus.$invalid">
-			            <p class="help-block" ng-show="identityForm.maritalStatus.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.childsNumber" for="field_childsNumber">ChildsNumber</label>
-			        <input type="number" min="0" class="form-control" name="childsNumber" id="field_childsNumber" ng-model="identity.childsNumber" required>
-			        <div ng-show="identityForm.chidlsNumber.$dirty && identityForm.childsNumber.$invalid">
-			            <p class="help-block" ng-show="identityForm.childsNumber.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-		                <p class="help-block" ng-show="identityForm.childsNumber.$error.number" translate="entity.validation.number">
-		                    This field should be a number.
-		                </p>
-		                <p class="help-block" ng-show="identityForm.childsNumber.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
-		                    This field should be a positive.
-		                </p>
-			        </div>
-			    </div>
-			    <div class="form-group" ng-if="needBrothers">
-			        <label translate="identity.form.brothersNumber" for="field_brothersNumber">BrothersNumber</label>
-			        <input type="number" min="0" class="form-control" name="brothersNumber" id="field_brothersNumber" ng-model="identity.brothersNumber" required>
-			        <div ng-show="identityForm.brothersNumber.$dirty && identityForm.brothersNumber.$invalid">
-			            <p class="help-block" ng-show="identityForm.brothersNumber.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-		                <p class="help-block" ng-show="identityForm.brothersNumber.$error.number" translate="entity.validation.number">
-		                    This field should be a number.
-		                </p>
-		                <p class="help-block" ng-show="identityForm.brothersNumber.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
-		                    This field should be a positive.
-		                </p>
-			        </div>
-			    </div>
-				<div class="form-group">
-			        <label translate="identity.form.activity" for="field_activity">Activity</label>
-			        <select-activity-type field-name="activity" field-id="field_activity" ng-model="identity.activity" required></select-activity-type>
-			        <div ng-show="identityForm.activity.$dirty && identityForm.activity.$invalid">
-			            <p class="help-block" ng-show="identityForm.activity.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			</div>
-		</div>
-		<div ng-if="needDocuments && !readOnlyMode">
-			<br>
-			<div class="row">
-				<div class="col-xs-1 col-xs-offset-1">
-			    	
-			    </div>
-			    <div class="col-xs-10 form-title-text">
-					<p translate="identity.form.document.title">Identity documents</p>
-			    </div>
-			</div>
-		    <br>
-		    <div class="row">
-				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-				    <div class="form-group">
-					    <label translate="identity.form.passport"></label>
-						<tooltip tooltip-text="identity.form.passport.tooltip"></tooltip>
-					    <file-upload ng-model="identity.documents" doc-type="passport" placeholder-key="identity.form.passport.placeholder"></file-upload>
+				<div class="row">
+					<div class="col-md-2">
+						<h6><label translate="identity.form.lastName">lastname</label></h6>
 					</div>
-					<div class="form-group">
-					    <label translate="identity.form.birthAct"></label>
-						<tooltip tooltip-text="identity.form.birthAct.tooltip"></tooltip>
-					    <file-upload ng-model="identity.documents" doc-type="birthAct" placeholder-key="identity.form.birthAct.placeholder"></file-upload>
+					<div class="col-md-3">
+						<h6><label>{{identity.lastname}}</label></h6>
 					</div>
-			   	</div>
-			</div>
+					<div class="col-md-2">
+						<h6><label translate="identity.form.birthDate">birthdate</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.birthDate}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-2">
+						<h6><label translate="Nom d'usage">usage</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>-</label></h6>
+					</div>
+					<div class="col-md-2">
+						<h6><label translate="identity.form.birthCity">birthcity</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.birthCity}}</label></h6>
+					</div>
+					
+				</div>
+						
+				<div class="row">
+					<div class="col-md-2">
+						<h6><label translate="identity.form.firstName">firstname</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.firstName}}</label></h6>
+					</div>
+					<div class="col-md-2">
+						<h6><label translate="identity.form.birthCountry">birthCountry</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.birthCountry}}</label></h6>
+					</div>
+				</div>
+						
+				<div class="row">
+					<div class="col-md-2">
+						<h6><label translate="identity.form.sex">sex</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.sexe}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+				<div class="col-md-2">
+						<h6><label translate="identity.form.maritalStatus">maritalStatus</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.maritalStatus}}</label></h6>
+					</div>
+					<div class="col-md-2">
+						<h6><label translate="identity.form.nationality">nationality</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.nationality}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-2 col-md-offset-5">
+						<h6><label translate="identity.form.passportNumber">passportNumber</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{identity.passportNumber}}</label></h6>
+					</div>
+				</div>
+				
+				<br/><br/>
+				<div class="row">
+					<div class="col-md-2">	
+						<button type="button" class="btn btn-default" translate="identity.form.button.cancel" ng-click="cancel()">Cancel</button>
+					</div>
+					<div class="col-md-1 col-md-offset-9">
+						<button type="submit" class="btn btn-primary" translate="identity.form.button.validate" ng-click="save()">Validate</button>
+					</div>
+				</div>				
+			</form>
 		</div>
-		<div class="row" ng-if="readOnlyMode">
-			<div class="col-xs-8 col-xs-offset-3 col-sm-6 col-sm-offset-5">
-				<ng-include src="'scripts/app/application/identity/identity-light-view.html'"></ng-include>
-			    <div class="form-group">
-			        <label translate="identity.form.passportNumber">PassportNumber</label> : <span>{{::identity.passportNumber}}</span>
-						<tooltip tooltip-text="identity.form.passportNumber.tooltip"></tooltip>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.maritalStatus">Marital status</label> : <span>{{::'sejourApp.MaritalStatus.' + identity.maritalStatus | translate}}</span>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.childsNumber">ChildsNumber</label> : <span>{{::identity.childsNumber}}</span>
-			    </div>
-			    <div class="form-group" ng-if="needBrothers">
-			        <label translate="identity.form.brothersNumber">BrothersNumber</label> : <span>{{::identity.brothersNumber}}</span>
-			    </div>
-				<div class="form-group">
-			        <label translate="identity.form.activity">Activity</label> : <span>{{::'sejourApp.ActivityType.' + identity.activity | translate}}</span>
-			    </div>
-			</div>
-		</div>
-		<br>
-	    <div class="row row-center">
-       		<button ng-if="currentApplicationBackup" type="button" class="btn btn-danger" translate="global.button.cancel" ng-click="cancel()">Cancel</button>
-       		<button ng-if="readOnlyMode && !identity.modeV2" type="button" class="btn btn-danger" translate="global.button.report">Report</button>
-       		<button ng-if="readOnlyMode && identity.modeV2" type="button" class="btn btn-danger" translate="global.button.modify" ng-click="modify()">Modify</button>
-       		<button type="submit" class="btn btn-primary" ng-class="{'btn-right': readOnlyMode || currentApplicationBackup}" translate="global.button.continue"
-       				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
-        </div>
-	</form>
+	</div> 
 </div>
 
-<script type="text/javascript">
-	$("html, body").animate({ scrollTop: 0 }, "slow");
-</script>
+
+

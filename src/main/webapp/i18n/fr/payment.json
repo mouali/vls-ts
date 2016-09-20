@@ -1,6 +1,8 @@
 {
 	"payment" : {
+		"title": "Paiement de la taxe de séjour",
 		"form": {
+			"informations": "Le montant de la taxe de séjour s'élève à",
 			"cardOwner": "Nom du titulaire de la carte",
 			"cardNumber": "Numéro de carte",
 			"cardExpiringDate": "Date d'expiration",

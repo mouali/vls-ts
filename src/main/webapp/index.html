@@ -24,15 +24,49 @@
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-        <div ui-view="navbar" ng-cloak=""></div>
+        <!-- <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div> -->
+        <!-- <div ui-view="navbar" ng-cloak=""></div>
+        <div class="panel panel-primary"></div> -->
+        
         <div class="container">
+        	<div ui-view="navbar" ng-cloak="">
+        	</div>
+        	
+        	
+        	<div class="panel panel-primary index-panel">
+					<div class="col-md-11">
+	          				<a class="a-panel" href="#/">Accueil</a>
+	          				<a class="a-panel" href="#/">Mes d&eacute;marches</a>
+	          				<a class="a-panel" href="#/mesdonnees">Mes donn&eacute;es</a>
+	          				<a class="a-panel" href="#/mesdocuments">Mes documents</a>
+	           		</div>
+	           		<div class="col-md-1">
+	          				<a style="color: white;" href="#/monaide">Mon aide</a>
+	           		</div>
+	           	<br>
+			</div>
+			
             <div class="customwell">
             	<div class="row">
-            		<div class="col-md-10 col-md-offset-1" ui-view="content"></div>
+            		<div class="col-md-12" ui-view="content"></div>
             	</div>
+            	</br>
             </div>
-            <div class="footer"></div>
+            
+            <div class="panel"></div>
+       			<div class="col-md-10">
+       				<h6>
+         				<a class="a-footer" href="#/">Contact</a>
+         				<a class="a-footer" href="#/">Plan du site</a>
+         				<a class="a-footer" href="#/">Mentions l&eacute;gales</a>
+         				<a class="a-footer" href="http://www.interieur.gouv.fr/Infos-du-site/E-accessibilite" target="_blank">E-Accessibilit&eacute;</a>
+         				<a class="a-footer" href="http://www.data.gouv.fr/fr/" target="_blank">Data.gouv.fr</a>
+         			</h6>
+        		</div>
+        		<div class="col-md-2 align-left">
+					<img src="logo-FAMI.png" class="img-responsive" alt="ImageDgef" width="90%">
+				</div>
+				<br><br><br>
         </div>
 
         <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
@@ -179,6 +213,22 @@
     <script src="scripts/app/application/final/final.controller.js"></script>
     <script src="scripts/app/application/rdv/rdv.js"></script>
     <script src="scripts/app/application/rdv/rdv.controller.js"></script>
+    <script src="scripts/app/application/changepwd/changepwd.js"></script>
+    <script src="scripts/app/application/changepwd/changepwd.controller.js"></script>
+    <script src="scripts/app/application/start/start.js"></script>
+    <script src="scripts/app/application/start/start.controller.js"></script>
+    <script src="scripts/app/application/enregistrer/enregistrer.js"></script>
+    <script src="scripts/app/application/enregistrer/enregistrer.controller.js"></script>
+    <script src="scripts/app/application/introduction/introduction.js"></script>
+    <script src="scripts/app/application/introduction/introduction.controller.js"></script>
+    <script src="scripts/app/application/paymentConfirmation/paymentConfirmation.js"></script>
+    <script src="scripts/app/application/paymentConfirmation/paymentConfirmation.controller.js"></script>
+    <script src="scripts/app/application/data/data.js"></script>
+    <script src="scripts/app/application/data/data.controller.js"></script>
+    <script src="scripts/app/application/help/help.js"></script>
+    <script src="scripts/app/application/help/help.controller.js"></script>
+    <script src="scripts/app/application/document/document.js"></script>
+    <script src="scripts/app/application/document/document.controller.js"></script>
     
     <!-- USAGER -->
     <script src="scripts/app/usager/usager.js"></script>

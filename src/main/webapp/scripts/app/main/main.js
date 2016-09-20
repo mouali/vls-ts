@@ -6,24 +6,8 @@ angular.module('sejourApp')
             .state('home', {
                 parent: 'site',
                 url: '/',
-                views: {
-                    'content@': {
-                        templateUrl: 'scripts/app/main/main.html',
-                        controller: 'MainController'
-                    }
-                },
-                resolve: {
-                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                        $translatePartialLoader.addPart('main');
-                        return $translate.refresh();
-                    }]
-                }
-            })
-            .state('homeOld', {
-                parent: 'site',
-                url: '/main',
                 data: {
-                    profil: 'abroad',
+                    roles: ['ROLE_USAGER']
                 },
                 views: {
                     'content@': {

@@ -1,112 +1,188 @@
-<div ng-cloak>
-    <div class="row title-main title-underline">
-    	<h4 translate="procedure.title">Title</h4>
-    </div>
-    <br>
-    <steps-menu stepnumber="5"></steps-menu>
-    <br><br>
+<div>
 
-	<div class="row">
-		<div class="col-xs-1 col-xs-offset-1">
-	    	<div class="step-number-align">
-	    		<div class="step-number">5</div>
+	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;<a href="#/">Mes d&eacute;marches</a>&nbsp;>&nbsp; D&eacute;claration de mon arriv&eacute;e</h6>
+	<br/>
+	
+	<div class="col-md-10 col-md-offset-1">
+		
+    	<steps-menu stepnumber="4"></steps-menu>
+    	
+    	<div class="row">
+			<div class="title-main title-underline">
+				<h4 translate="payment.title">payment</h4>
+			</div>
+		</div>
+		
+		<span>S&eacute;lectionnez votre mode de paiement.</span><br/>
+		
+		<em><h6 class="text-underline">* : champs obligatoire</h6></em>
+		
+		<div class="col-md-3">
+		
+		<div class="radio">
+			<h4>
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="isPaymentVisa=false" checked>
+			    	J'ai d&eacute;j&agrave; un timbre
+			  </label>
+			</h4>
+		</div>
+		<div class="radio">
+		  <h4>
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="isPaymentVisa=true">
+			    	Je n'ai pas de timbre
+			  </label>
+		  </h4>
+		</div>
+		
+		</div>
+		
+		<div class="col-md-8">
+		
+		<!-- TIMBRE -->
+		<div class="row" ng-hide=isPaymentVisa>
+			
+			<div class="panel panel-default">
+				<!-- <div class="row">
+					<div class="panel-heading" >
+						<div class="col-md-6">
+							<h4>&nbsp;&nbsp;J'ai d&eacute;j&agrave; un timbre</h4>
+						</div>
+					</div>
+				</div> -->
+				<br>
+				<div class="row">
+					<div class="panel panel-default credit-card-box" >
+	  					<div class="panel-body">
+	        				<form role="form" id="paymentForm" ng-submit="save()" show-validation>
+	            				<div class="row">
+	                				<div class="col-xs-12">
+	                    				<div class="form-group">
+	                        				<label for="cardOwner" translate="Num&eacute;ro du timbre *">CARD OWNER</label>
+	                        				<input type="number" class="form-control" name="cardOwner" ng-model="number" required/>
+	                    				</div>
+	                				</div>                        
+	            				</div>
+	            				<div class="row row-center">
+	   								<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+	            					<button type="submit" class="btn btn-success btn-right" translate="Consommer le timbre">Payment</button>
+	            				</div>
+	          				</form>
+	          			</div>
+	       			</div>
+	       			<br>
+	    		</div>
+			</div>
+		</div>
+		
+		<!-- CARTE BANCAIRE -->
+		<div class="row" ng-show=isPaymentVisa>
+			<div class="panel panel-default">
+				<div class="row">
+					<!-- <div class="panel-heading" ng-click="isPaymentVisa=true">	
+   						<div class="col-md-6">
+   							<h4 >&nbsp;&nbsp;Je n'ai pas de timbre</h4>
+   						</div>
+   					</div> -->
+		   			<div class="col-md-10 col-md-offset-1 text-center" >
+		   				<br>
+		   				<span>Le montant de la taxe de s&eacute;jour s'&eacute;l&egrave;ve &agrave; <b>&nbsp;&nbsp;&nbsp;58,00 euros</b></span>
+		   				<br><br>
+		   			</div>
+			
+				</div>
+				<div class="row" ng-show=isPaymentVisa>
+			        <!-- CREDIT CARD FORM STARTS HERE -->	
+			       	<div class="panel panel-default credit-card-box" >
+			            <div class="panel-heading" >
+			                <div class="row display-tr" >
+			                    <div class="display-td" >                            
+			                        <img class="img-responsive pull-right" src="assets/images/ogone_payment.png">
+			                    </div>
+			                </div>                    
+			            </div>
+			            <div class="panel-body">
+			                <form role="form" id="paymentForm" novalidate ng-submit="save()" show-validation>
+			                    <div class="row">
+			                        <div class="col-xs-12">
+			                            <div class="form-group">
+			                                <label for="cardOwner" translate="payment.form.cardOwner">CARD OWNER</label>
+			                                <input type="text" class="form-control" name="cardOwner" ng-model="payment.cardOwner" ng-change="autocomplete()" required autofocus />
+			                            </div>
+			                        </div>                        
+			                    </div>
+			                    <div class="row">
+			                        <div class="col-xs-12">
+			                            <div class="form-group">
+			                                <label for="cardNumber" translate="payment.form.cardNumber">CARD NUMBER</label>
+			                                <div class="input-group">
+			                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+			                                    <input 
+			                                        type="tel"
+			                                        class="form-control"
+			                                        name="cardNumber"
+			                                        ng-model="payment.cardNumber"
+			                                        autocomplete="cc-number"
+			                                        required 
+			                                    />
+			                                </div>
+			                            </div>                            
+			                        </div>
+			                    </div>
+			                    <div class="row">
+			                        <div class="col-sm-6">
+			                            <div class="form-group">
+			                                <label for="cardExpiry" translate="payment.form.cardExpiringDate">EXPIRATION DATE</label>
+			                                <input 
+			                                    type="tel" 
+			                                    class="form-control" 
+			                                    name="cardExpiry"
+			                                    ng-model="payment.cardExpiringDate"
+			                                    placeholder="MM / YY"
+			                                    autocomplete="cc-exp"
+			                                    required 
+			                                />
+			                            </div>
+			                        </div>
+			                        <div class="col-xs-12 col-sm-6 pull-right">
+			                            <div class="form-group">
+			                                <label for="cardCVC" translate="payment.form.cardCV">CV CODE</label>
+			                                <input 
+			                                    type="tel" 
+			                                    class="form-control"
+			                                    name="cardCVC"
+			                                    ng-model="payment.cardCV"
+			                                    placeholder="CVC"
+			                                    autocomplete="cc-csc"
+			                                    required
+			                                />
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <div class="row row-center">
+							       	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+			                    	<button type="submit" class="btn btn-success btn-right" translate="global.button.payment"
+			                    			 ng-disabled="payment.cardOwner == null || payment.cardNumber == null || payment.cardExpiringDate == null || payment.cardCV == null || paymentForm.$invalid || paymentForm.$submitted">Payment</button>
+			                    </div>
+			                    <div class="row" style="display:none;">
+			                        <div>
+			                            <p class="payment-errors"></p>
+			                        </div>
+			                    </div>
+			                </form>
+			            </div>
+			      	</div>
+			   		<br>
+				</div>
+				</div>
 	    	</div>
-	    </div>
-	    <div class="col-xs-10 form-title-text">
-	    	<p translate="procedure.payment.step.long">Payment</p>
-	    </div>
-	</div>
-	<br>
-	<div class="row row-center">
-    	<div class="col-xs-10 col-xs-offset-1" translate="payment.form.informations">
-   		</div>
-	</div>
-	<br>
-	<div class="row">
-        <!-- CREDIT CARD FORM STARTS HERE -->
-        <div class="panel panel-default credit-card-box">
-            <div class="panel-heading" >
-                <div class="row display-tr" >
-                    <div class="display-td" >                            
-                        <img class="img-responsive pull-right" src="assets/images/ogone_payment.png">
-                    </div>
-                </div>                    
-            </div>
-            <div class="panel-body">
-                <form role="form" id="paymentForm" novalidate ng-submit="save()" show-validation>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <label for="cardOwner" translate="payment.form.cardOwner">CARD OWNER</label>
-                                <input type="text" class="form-control" name="cardOwner" ng-model="payment.cardOwner" ng-change="autocomplete()" required autofocus />
-                            </div>
-                        </div>                        
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <label for="cardNumber" translate="payment.form.cardNumber">CARD NUMBER</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                    <input 
-                                        type="tel"
-                                        class="form-control"
-                                        name="cardNumber"
-                                        ng-model="payment.cardNumber"
-                                        autocomplete="cc-number"
-                                        required 
-                                    />
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="cardExpiry" translate="payment.form.cardExpiringDate">EXPIRATION DATE</label>
-                                <input 
-                                    type="tel" 
-                                    class="form-control" 
-                                    name="cardExpiry"
-                                    ng-model="payment.cardExpiringDate"
-                                    placeholder="MM / YY"
-                                    autocomplete="cc-exp"
-                                    required 
-                                />
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 pull-right">
-                            <div class="form-group">
-                                <label for="cardCVC" translate="payment.form.cardCV">CV CODE</label>
-                                <input 
-                                    type="tel" 
-                                    class="form-control"
-                                    name="cardCVC"
-                                    ng-model="payment.cardCV"
-                                    placeholder="CVC"
-                                    autocomplete="cc-csc"
-                                    required
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row row-center">
-				       	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
-                    	<button type="submit" class="btn btn-success btn-right" translate="global.button.payment"
-                    			 ng-disabled="payment.cardOwner == null || payment.cardNumber == null || payment.cardExpiringDate == null || payment.cardCV == null || paymentForm.$invalid || paymentForm.$submitted">Payment</button>
-                    </div>
-                    <div class="row" style="display:none;">
-                        <div>
-                            <p class="payment-errors"></p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>       
+	  	</div> 
+	</div>      
 </div>
     
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
-</script>
+</script> 
+
+

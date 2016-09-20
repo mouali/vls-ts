@@ -1,23 +1,35 @@
 {
 	"address" : {
+		"title": "Coordonnées",
 		"form": {
+			"owner": "Hébergé par",
+			"owner.placeholder": "Nom de la personne qui vous héberge",
+			"number": "N° de voie *",
+			"number.placeholder": "N° de voie",
+			"complement": "Complément d'adresse",
+			"complement.placeholder": "Batiment, étage, lieu-dit, ...",
+			"street": "Voie *",
+			"street.placeholder": "Rue, boulevard, avenue, ...",
+			"city": "Ville *",
+			"city.placeholder": "Paris, Lyon, ...",
+			"postalCode": "Code postal *",
+			"postalCode.placeholder": "75014, 92120, ...",
+			"country": "Pays",
+			"phone": "N° de téléphone *",
+			"phone.placeholder": "+33 699999999",
+			"email": "Email *",
+			"email.placeholder": "Adresse email",
+			"contactType": "Moyen(s) de contact préféré(s)",
 			"tooltip": "Merci d'indiquer ici votre adresse en France",
 			"comingDate": "Date d'arrivée en France",
-			"owner": "Chez",
-			"number": "Numéro de voie",
-			"street": "Voie",
-			"complement": "Complément",
-			"postalCode": "Code postal",
-			"city": "Ville",
 			"country": "Pays de résidence",
-			"phone": "Téléphone",
-			"email": "Email",
-			"contactType": "Moyen(s) de contact préféré(s)",
 			"contactType.tooltip": "Vous avez la possibilité de choisir un ou plusieurs moyens de contact préférés. Ils seront utilisés pour vous informer sur le déroulement de votre demande.",
             "document.title": "Joignez vos pièces justificatives",
             "residency": "Justificatif de domicile",
             "residency.placeholder": "Cliquer ou déposer votre justificatif ici...",
-            "residency.tooltip": "Merci de joindre un de ces documents, datant de moins de 3 mois : facture de gaz, d’électricité ou de téléphone, quittance de loyer, contrat de location, titre de propriété accompagné de l’attestation d’assurance du logement, attestation d’hébergement du logeur et copie de sa carte d’identité ou de séjour et de sa dernière quittance de gaz ou d’électricité,  attestation du responsable ou gérant et facture du dernier mois."
+            "residency.tooltip": "Merci de joindre un de ces documents, datant de moins de 3 mois : facture de gaz, d’électricité ou de téléphone, quittance de loyer, contrat de location, titre de propriété accompagné de l’attestation d’assurance du logement, attestation d’hébergement du logeur et copie de sa carte d’identité ou de séjour et de sa dernière quittance de gaz ou d’électricité,  attestation du responsable ou gérant et facture du dernier mois.",
+            "button.validate": "Suivant",
+            "button.cancel": "Précedent"
 		}
 	}
 }

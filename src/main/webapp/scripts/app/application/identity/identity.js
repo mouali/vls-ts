@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('identity', {
                 parent: 'site',
-                url: '/{id}/etatcivil',
+                url: '/EtatCivil',
                 data: {
                     roles: ['ROLE_USAGER']
                 },
@@ -16,32 +16,10 @@ angular.module('sejourApp')
                     }
                 },
                 resolve: {
-                    currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
-                        return Application.get({id : $stateParams.id});
-                    }],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication',
-                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
-                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
-                    	$translatePartialLoader.addPart('identity');
-                    	$translatePartialLoader.addPart('sexType');
-                    	$translatePartialLoader.addPart('maritalStatus');
-                    	$translatePartialLoader.addPart('activityType');
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('identity');
                         return $translate.refresh();
                     }]
                 }
             });
-    })
-    .directive('identityFormLight', function() {
-        return {
-            restrict: 'E',
-            required: '^ngModel',
-            scope: {
-            	identity: "=ngModel",
-            	withTooltip: "="
-            },
-            templateUrl: 'scripts/app/application/identity/identity-light.html',
-            link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('[id=field_lastName]').popover(scope.withTooltip === true ? undefined : 'disable');
-            }
-        };
     });

@@ -4,7 +4,7 @@ angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('password', {
-                parent: 'account',
+                parent: 'site',
                 url: '/password',
                 data: {
                     roles: ['ROLE_USER']

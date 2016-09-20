@@ -29,7 +29,9 @@
 		        	"family": "Je veux <strong>faire venir ma famille</strong> en France",
 		        	"extend": "Je veux <strong>renouveler ma carte de séjour</strong> en France",
 		        	"sick": "Je veux <strong>bénéficier d'une procédure pour les étrangers malades</strong>",
-		        	"movement": "Je veux <strong>demander un document de circulation</strong>"
+		        	"movement": "Je veux <strong>demander un document de circulation</strong>",
+		        	"start": "Je veux <strong>déclarer mon arrivée en France</strong>",
+		        	"history": "Je veux <strong>consulter l'historique de mes démarches</strong>"
 		        }
 	        }
 	    },

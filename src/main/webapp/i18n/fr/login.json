@@ -1,11 +1,13 @@
 {
     "login": {
-        "title": "Authentification",
+        "title": "Connectez-vous pour accéder à vos service",
         "form": {
+        	"userid": "Identifiant",
+            "userid.placeholder": "Saisissez votre identifiant",
             "password": "Mot de passe",
-            "password.placeholder": "Votre mot de passe",
+            "password.placeholder": "Mot de passe",
             "rememberme": "Garder la session ouverte",
-            "button": "Connexion"
+            "button": "Se connecter"
         },
         "messages": {
             "error": {

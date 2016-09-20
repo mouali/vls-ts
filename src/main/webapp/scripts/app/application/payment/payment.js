@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('payment', {
                 parent: 'site',
-                url: '/{id}/paiement',
+                url: '/paiement',
                 data: {
                     roles: ['ROLE_USAGER']
                 },
@@ -16,13 +16,8 @@ angular.module('sejourApp')
                     }
                 },
                 resolve: {
-                    currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
-                        return Application.get({id : $stateParams.id});
-                    }],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication',
-                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
-                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
-                    	$translatePartialLoader.addPart('payment');
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('payment');
                         return $translate.refresh();
                     }]
                 }

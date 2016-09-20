@@ -1,122 +1,18 @@
 <div ng-cloak ng-switch="userType">
-	<br>
-    <div ng-switch-when="undefined">
-	   	<br>
-	   	<div class="row row-center">
-	   		<h3 translate="main.unknown.choice">profil</h3>
-	   	</div>
-	   	<br>
-	   	<br>
+
+	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;Mes d&eacute;marches</h6>
+	<br/>
+	
+	<div class="col-md-10 col-md-offset-1">
+		<br/>
 	    <div class="row">
-	    	<div class="col-sm-6 col-lg-5 col-lg-offset-1">
-	        	<box-menu class="box-home" boxtitle="main.unknown.button.individual" boxlogo="user" ng-click="choose('individual')"></box-menu>
-	        </div>
-	        <div class="col-sm-6 col-lg-5">
-		        <box-menu class="box-home" boxtitle="main.unknown.button.company" boxlogo="industry" ng-click="choose('company')"></box-menu>
-	        </div>
+			<div class="col-md-4 col-md-offset-2">
+				<box-menu boxtitle="main.usager.title.france.start" boxlogo="map-marker" ui-sref="introduction"></box-menu>
+			</div>
+			<div class="col-md-4">
+				<box-menu boxtitle="main.usager.title.france.history" boxlogo="calendar" ui-sref="/"></box-menu>
+			</div>
 	    </div>
-    </div>
-    <div class="row" ng-switch-when="individual">
-	    <div ng-switch="profil">
-	    	<div ng-switch-when="undefined">
-			   	<br><br><br><br><br><br>
-	    		<div class="col-sm-6 col-lg-5 col-lg-offset-1">
-		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="key" ng-click="chooseProfil('France')"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-lg-5">
-			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="lock" ng-click="chooseProfil('abroad')"></box-menu>
-		        </div>
-	    	</div>
-	    	<div ng-switch-when="France">
-		    	<div class="col-sm-6 col-md-4">
-		        	<box-menu boxtitle="main.usager.title.france.study" boxlogo="newspaper-o" ui-sref="usager/etudierTmp"></box-menu>
-		        </div>
-		    	<div class="col-sm-6 col-md-4">
-		        	<box-menu boxtitle="main.usager.title.france.change" boxlogo="angle-double-right" disabled="true"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.france.family" boxlogo="users" disabled="true"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.france.extend" boxlogo="repeat" ui-sref="usager/renouvelerTmp/etudes"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" disabled="true"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.france.movement" boxlogo="globe" disabled="true"></box-menu>
-		        </div>
-	    	</div>
-	    	<div ng-switch-when="abroad">
-		    	<div class="col-sm-6 col-md-4">
-		        	<box-menu boxtitle="main.usager.title.study" boxlogo="graduation-cap" ui-sref="usager/etudier"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase" disabled="true"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			     	<box-menu boxtitle="main.usager.title.family" boxlogo="users" disabled="true"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler"></box-menu>
-		        </div>
-		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" ui-sref="usager/naturalization"></box-menu>
-		        </div>
-	       	</div>
-       	</div>
-    </div>
-    <div class="row" ng-switch-when="company">
-    	<div class="col-sm-6 col-md-4">
-        	<box-menu boxtitle="main.company.title.hire" boxlogo="briefcase" disabled="true"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	        <box-menu boxtitle="main.company.title.declare" boxlogo="pencil" disabled="true"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	     	<box-menu boxtitle="main.company.title.verify" boxlogo="search" disabled="true"></box-menu>
-        </div>
-    </div>
-    <div class="row" ng-switch-when="agent">
-    	<div class="col-sm-7 col-md-8">
-		    <div class="row">
-	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="check" boxbadge="{{nbPaid}}" ui-sref="admissibility/list"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="calendar-check-o" boxbadge="{{nbScheduled}}" ui-sref="identification/list"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbIdentityVerified}}" ui-sref="validation/list"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.receipt" boxlogo="newspaper-o" boxbadge="0" ui-sref="receipt"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.issuing" boxlogo="newspaper-o" boxbadge="{{nbPermitToIssue}}" ui-sref="issuing/list"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.reconstruction" boxlogo="compress" boxbadge="{{nbCivilStateToReconstruct}}" ui-sref="reconstruction/list"></box-menu>
-	        </div>
-        </div>
-        <div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">
-		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.usager" boxlogo="users" disabled="true"></box-menu>
-	        </div>
-    		<div class="row">
-		        <box-menu boxtitle="main.agent.title.application" boxlogo="search" disabled="true"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.follow" boxlogo="newspaper-o" ui-sref="follow({tab: 'recus'})"></box-menu>
-	        </div>
-        	<div class="row">
-		        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="calendar" disabled="true"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.question" boxlogo="comments" disabled="true"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.analyse" boxlogo="bar-chart" ui-sref="agent/control"></box-menu>
-	        </div>
-        </div>
+	    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
 </div>

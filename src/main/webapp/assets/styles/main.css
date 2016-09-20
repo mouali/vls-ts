@@ -176,9 +176,9 @@ ul#strengthBar {
 
 
 .customwell {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
+  min-height: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
 }
 
 .row-center {
@@ -524,7 +524,31 @@ ul#strengthBar {
 	width: 982px;
 	height: 742px;
 }
+
 .tableauViz {
 	width: 982px;
 	height: 742px;
 }
+
+.index-panel{
+	background:#357AB7;
+	padding: 15px;}
+	
+.a-panel{
+	color: white; 
+	padding: 30px;}
+	
+.a-footer{	
+	color: black; 
+	padding-right: 30px;
+	padding-top: 10px;}
+	
+.test{
+	padding: 0px;
+}
+
+.test2{
+	margin-bottom: 10px;
+}
+
+

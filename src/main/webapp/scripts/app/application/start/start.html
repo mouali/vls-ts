@@ -1,0 +1,101 @@
+<div>
+
+	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;<a href="#/">Mes d&eacute;marches</a>&nbsp;>&nbsp; D&eacute;claration de mon arriv&eacute;e</h6>
+	<br/>
+	
+    <div class="col-md-10 col-md-offset-1">
+
+	    <steps-menu stepnumber="1"></steps-menu>
+	    
+	    <div class="row">
+	    
+			<div class="title-main title-underline">
+				<h4 translate="start.title">start</h4>
+			</div>
+	    
+			<form class="form-inline" role="form" id="startForm" ng-submit="save()" show-validation>
+			
+				<span>V&eacute;rifiez vos informations de visa. En cas d'erreur, contactez l'<a href="http://ofii.fr" target="_blank">OFII</a>.</span><br/>
+				<span>Indiquez la date d'entr&eacute;e en France qui est mentionn&eacute;e sur votre visa.</span><br/>
+				
+				<em><h6 class="text-underline">* : champs obligatoire</h6></em>
+		   
+				<div class="row">
+					<div class="col-md-3">
+						<h6><label translate="start.form.visa.id">VisaId</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{visaid}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<h6><label translate="Motif d'entr&eacutee en France">motif</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{motif}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<h6><label translate="Date de d&eacute;but de validit&eacute;">Date début</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{dateDebutValidite}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<h6><label translate="Date de fin de validit&eacute;">Date fin</label></h6>
+					</div>
+					<div class="col-md-3">
+						<h6><label>{{datefinValidite}}</label></h6>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3">
+		   				<h6><label for="date" translate="Date d'entr&eacutee en France *">Heure</label></h6>
+		   			</div>
+		           	<div class="col-md-3">
+		                <!-- <div class='input-group date' id='datetimepicker3'>
+		                    <input type='text' class="form-control" required/>
+		                    <span class="input-group-addon">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </span>
+		                </div> -->
+		                <!-- <input type="date" id="date" name="date" max="{{dateMax}}" min="{{dateMin}}" required> -->
+		                <input type="date" id="date" name="date" max="2016-09-06" min="2015-09-06" required>
+		          	</div>
+		      	</div>       
+				
+				<br/><br/> 
+				<div class="row">
+					<div class="col-md-2">	
+						<button type="button" class="btn btn-default" translate="start.form.button.cancel" ng-click="cancel()">Cancel</button>
+					</div>
+					<div class="col-md-1 col-md-offset-9">
+						<button type="submit" class="btn btn-primary" translate="start.form.button.validate">Validate</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div> 
+</div>
+
+<script type="text/javascript">
+   $(function () {
+           $('#datetimepicker3').datetimepicker({
+               //defaultDate: "10/7/2019"
+               /* disabledDates: [
+                   moment("12/25/2013"),
+                   new Date(2013, 11 - 1, 21),
+                   "11/22/2013 00:53"
+               ] */
+           });
+       });
+   </script>
+
