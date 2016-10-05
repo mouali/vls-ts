@@ -1,0 +1,10 @@
+{
+    "consulat": {
+        "main": {
+	        "message": "Notices d'informations"
+        },
+        "search": {
+        	"title": "Rechercher une personne"
+        }
+    }
+}

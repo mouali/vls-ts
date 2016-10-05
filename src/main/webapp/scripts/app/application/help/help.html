@@ -1,6 +1,8 @@
+<ng-include src="'scripts/app/application/common/bandeauusager.html'"></ng-include>
+
 <div ng-cloak ng-switch="userType">
 
-	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;Mon aide</h6>
+	<h6  class="margin-left-30">Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;Mon aide</h6>
 	<br/>
 	
 	<div class="col-md-10 col-md-offset-1">
@@ -10,7 +12,7 @@
 				<box-menu boxtitle="help.questions" boxlogo="question-circle" ui-sref="help"></box-menu>
 			</div>
 			<div class="col-md-4">
-				<box-menu boxtitle="help.email" boxlogo="mail-forward" ui-sref="help"></box-menu>
+				<box-menu boxtitle="help.email" boxlogo="mail-forward" ui-sref="email"></box-menu>
 			</div>
 	    </div>
 	    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

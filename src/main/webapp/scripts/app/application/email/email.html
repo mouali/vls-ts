@@ -1,0 +1,40 @@
+<ng-include src="'scripts/app/application/common/bandeauusager.html'"></ng-include>
+
+<div>
+	<h6 class="margin-left-30">Vous &ecirc;tes ici&nbsp;:&nbsp;<a href=#/">Accueil</a>&nbsp;>&nbsp;<a href="#/monaide">Mon aide</a>&nbsp;>&nbsp; Ma messagerie s&eacute;curis&eacute;e</h6>
+	<br/>
+    <div class="col-md-8 col-md-offset-2">
+			<form class="form-horizontal" role="form" id="emailForm" ng-submit="submit()" show-validation>
+			  	<table class="table table-bordered">
+					<tr>
+		 				<td>
+							<label>Nouveau message</label>
+		 				</td>
+					</tr>
+					<tr>
+				      	<td>
+			    			<label for="object">Objet : </label>
+							<select class="form-control input-lg" id="object">
+								<option>Mon identit&eacute; est incorrecte</option>
+  								<option>Mon adresse est incorrecte</option>
+  								<option>J'ai un probl&egrave;me pour payer mon attestation</option>
+  								<option>Je n'arrive pas &agrave; imprimer mon attestation</option>
+  								<option>Autres</option>
+							</select>
+				      	</td>
+					</tr>
+					<tr>
+				      	<td>
+							<textarea class="form-control" rows="10"></textarea>
+				      	</td>
+					</tr>
+					<tr>
+				      	<td class="text-right">
+          					<button type="submit" class="btn btn-primary" ng-click="envoyer()">Envoyer</button>
+				      	</td>
+					</tr>
+			</table>
+			
+			</form>
+	</div> 
+</div>

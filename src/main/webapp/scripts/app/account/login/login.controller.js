@@ -4,6 +4,14 @@ angular.module('sejourApp').controller('LoginController',
 		function($rootScope, $scope, $state, $location, $timeout, Auth) {
 			$scope.user = {};
 			$scope.errors = {};
+			
+			$scope.autocomplete = function() {
+	    		if($scope.userid === '12') {
+	    			$scope.userid = "123456789012";
+	    		} else if($scope.userid === '23') {
+	    			$scope.userid = "234567890123";
+	    		}
+	        };
 
 			$scope.rememberMe = true;
 			$timeout(function() {
@@ -13,7 +21,11 @@ angular.module('sejourApp').controller('LoginController',
 			 $scope.login = function (event) {
 			 event.preventDefault();
 			 if ($scope.userid == "123456789012" ){
+				 $rootScope.userid = "123456789012";
 				 $scope.useridTemp = "kim.soon.jeen@gmail.com";
+			 }else if ($scope.userid == "234567890123" ){
+				 $rootScope.userid = "234567890123";
+				 $scope.useridTemp = "kim.soon.jean@gmail.com";
 			 }
 			 Auth.login({
 				 username: $scope.useridTemp,
@@ -28,13 +40,12 @@ angular.module('sejourApp').controller('LoginController',
 			 $rootScope.returnToState = null;
 			 $rootScope.returnToStateParams = null;
 			 
-			 if ($scope.userid === 'kim.soon.jean@gmail.com'){
+			 if ($scope.userid === '234567890123'){
 				 $state.go('home');
 			 }	 
 			 else {
 				 $state.go('changepwd');
 			 }
-				 
 			                
 			 }).catch(function () {
 			 $scope.authenticationError = true;

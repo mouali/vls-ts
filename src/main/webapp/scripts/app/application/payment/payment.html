@@ -1,90 +1,70 @@
-<div>
+<ng-include src="'scripts/app/application/common/bandeauusager.html'"></ng-include>
 
-	<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;<a href="#/">Mes d&eacute;marches</a>&nbsp;>&nbsp; D&eacute;claration de mon arriv&eacute;e</h6>
+<div>
+	<h6 class="margin-left-30">Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/">Accueil</a>&nbsp;>&nbsp;<a href="#/">Mes d&eacute;marches</a>&nbsp;>&nbsp; D&eacute;claration de mon arriv&eacute;e</h6>
 	<br/>
 	
 	<div class="col-md-10 col-md-offset-1">
-		
     	<steps-menu stepnumber="4"></steps-menu>
-    	
     	<div class="row">
 			<div class="title-main title-underline">
 				<h4 translate="payment.title">payment</h4>
 			</div>
 		</div>
-		
 		<span>S&eacute;lectionnez votre mode de paiement.</span><br/>
-		
 		<em><h6 class="text-underline">* : champs obligatoire</h6></em>
-		
 		<div class="col-md-3">
-		
-		<div class="radio">
-			<h4>
-			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="isPaymentVisa=false" checked>
-			    	J'ai d&eacute;j&agrave; un timbre
-			  </label>
-			</h4>
-		</div>
-		<div class="radio">
-		  <h4>
-			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="isPaymentVisa=true">
-			    	Je n'ai pas de timbre
-			  </label>
-		  </h4>
-		</div>
-		
+			<div class="radio">
+				<h4>
+				  <label>
+				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="isPaymentVisa=false" checked>
+				    	J'ai d&eacute;j&agrave; un timbre
+				  </label>
+				</h4>
+			</div>
+			<div class="radio">
+			  <h4>
+				  <label>
+				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="isPaymentVisa=true">
+				    	Je n'ai pas de timbre
+				  </label>
+			  </h4>
+			</div>
 		</div>
 		
 		<div class="col-md-8">
-		
-		<!-- TIMBRE -->
-		<div class="row" ng-hide=isPaymentVisa>
-			
-			<div class="panel panel-default">
-				<!-- <div class="row">
-					<div class="panel-heading" >
-						<div class="col-md-6">
-							<h4>&nbsp;&nbsp;J'ai d&eacute;j&agrave; un timbre</h4>
-						</div>
-					</div>
-				</div> -->
-				<br>
-				<div class="row">
-					<div class="panel panel-default credit-card-box" >
-	  					<div class="panel-body">
-	        				<form role="form" id="paymentForm" ng-submit="save()" show-validation>
-	            				<div class="row">
-	                				<div class="col-xs-12">
-	                    				<div class="form-group">
-	                        				<label for="cardOwner" translate="Num&eacute;ro du timbre *">CARD OWNER</label>
-	                        				<input type="number" class="form-control" name="cardOwner" ng-model="number" required/>
-	                    				</div>
-	                				</div>                        
-	            				</div>
-	            				<div class="row row-center">
-	   								<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
-	            					<button type="submit" class="btn btn-success btn-right" translate="Consommer le timbre">Payment</button>
-	            				</div>
-	          				</form>
-	          			</div>
-	       			</div>
-	       			<br>
-	    		</div>
+			<!-- TIMBRE -->
+			<div class="row" ng-hide=isPaymentVisa>
+				<div class="panel panel-default">
+					<br>
+					<div class="row">
+						<div class="panel panel-default credit-card-box" >
+		  					<div class="panel-body">
+		        				<form role="form" id="paymentForm" ng-submit="save()" show-validation>
+		            				<div class="row">
+		                				<div class="col-xs-12">
+		                    				<div class="form-group">
+		                        				<label for="stampnumber" translate="Num&eacute;ro du timbre *">STAMP NUMBER</label>
+		                        				<input type="number" class="form-control" name="stampnumber" ng-model="stampnumber" ng-change="autocompleteStampNumber()" required autofocus />
+		                    				</div>
+		                				</div>                        
+		            				</div>
+		            				<div class="row row-center">
+		   								<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+		            					<button type="submit" class="btn btn-success btn-right" translate="Consommer le timbre">Payment</button>
+		            				</div>
+		          				</form>
+		          			</div>
+		       			</div>
+		       			<br>
+		    		</div>
+				</div>
 			</div>
-		</div>
 		
 		<!-- CARTE BANCAIRE -->
 		<div class="row" ng-show=isPaymentVisa>
 			<div class="panel panel-default">
 				<div class="row">
-					<!-- <div class="panel-heading" ng-click="isPaymentVisa=true">	
-   						<div class="col-md-6">
-   							<h4 >&nbsp;&nbsp;Je n'ai pas de timbre</h4>
-   						</div>
-   					</div> -->
 		   			<div class="col-md-10 col-md-offset-1 text-center" >
 		   				<br>
 		   				<span>Le montant de la taxe de s&eacute;jour s'&eacute;l&egrave;ve &agrave; <b>&nbsp;&nbsp;&nbsp;58,00 euros</b></span>

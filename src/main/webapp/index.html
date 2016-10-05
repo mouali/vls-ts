@@ -31,26 +31,12 @@
         <div class="container">
         	<div ui-view="navbar" ng-cloak="">
         	</div>
-        	
-        	
-        	<div class="panel panel-primary index-panel">
-					<div class="col-md-11">
-	          				<a class="a-panel" href="#/">Accueil</a>
-	          				<a class="a-panel" href="#/">Mes d&eacute;marches</a>
-	          				<a class="a-panel" href="#/mesdonnees">Mes donn&eacute;es</a>
-	          				<a class="a-panel" href="#/mesdocuments">Mes documents</a>
-	           		</div>
-	           		<div class="col-md-1">
-	          				<a style="color: white;" href="#/monaide">Mon aide</a>
-	           		</div>
-	           	<br>
-			</div>
 			
             <div class="customwell">
             	<div class="row">
             		<div class="col-md-12" ui-view="content"></div>
             	</div>
-            	</br>
+            	<br>
             </div>
             
             <div class="panel"></div>
@@ -229,6 +215,13 @@
     <script src="scripts/app/application/help/help.controller.js"></script>
     <script src="scripts/app/application/document/document.js"></script>
     <script src="scripts/app/application/document/document.controller.js"></script>
+    <script src="scripts/app/application/email/email.js"></script>
+    <script src="scripts/app/application/email/email.controller.js"></script>
+    
+    <script src="scripts/app/application/consulat/consulatmain/consulatmain.js"></script>
+    <script src="scripts/app/application/consulat/consulatmain/consulatmain.controller.js"></script>
+    <script src="scripts/app/application/consulat/consulatsearch/consulatsearch.js"></script>
+    <script src="scripts/app/application/consulat/consulatsearch/consulatsearch.controller.js"></script>
     
     <!-- USAGER -->
     <script src="scripts/app/usager/usager.js"></script>

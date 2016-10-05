@@ -5,6 +5,11 @@ angular.module('sejourApp').controller('ChangepwdController',
 			$scope.user = {};
 			$scope.errors = {};
 
+			$scope.autocomplete = function() {
+	    		if($scope.visaid === "F") {
+	    			$scope.visaid = "F50620070";
+	    		}
+	        };
 			 
 			$scope.save = function () {
 				if ($scope.oldpassword == "sief2" && $scope.visaid == "F50620070" 

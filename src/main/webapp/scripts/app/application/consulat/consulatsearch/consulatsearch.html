@@ -1,0 +1,54 @@
+<ng-include src="'scripts/app/application/common/bandeauconsulat.html'"></ng-include>
+
+<div>
+	<h6 class="margin-left-30">Vous &ecirc;tes ici&nbsp;:&nbsp;<a href="#/consulat/main">Accueil</a>&nbsp;>&nbsp;Mes t&acirc;ches&nbsp;>&nbsp;Notices d'informations</h6>
+	<br/>
+	
+	<div class="row margin-left-5 margin-right-5">
+			<div class="title-main title-underline">
+				<h4 translate="consulat.search.title">Rechercher une personne</h4>
+			</div>
+			<div class="panel panel-default">
+				<br>
+				<form class="form-inline">
+			  		<div class="form-group margin-left-30">
+			    		<label for="lastname">Nom</label>
+						<input type="text" class="width-120" id="lastname" ng-model="lastname">
+			  		</div>
+			  		<div class="form-group margin-left-30">
+			    		<label for="firstname">Pr&eacute;nom</label>
+						<input type="text" class="width-120" id="firstname" ng-model="firstname">
+			  		</div>
+			  		<div class="form-group margin-left-30">
+			    		<label for="visanumber">Num&eacute;ro de visa</label>
+						<input type="text" class="width-120" id="visanumber" ng-model="visanumber">
+			  		</div>
+			  		<div class="form-group margin-left-30">
+	   					<label for="date">Date de d&eacute;livrance</label>
+	            		<input type="date" class="width-120"  id="date" name="date" max="2017-09-06" min="2014-09-06" ng-model="date">
+	          		</div>
+	          		<div class="form-group margin-left-30">
+          				<button type="submit" class="btn btn-primary" ng-click="rechercher(lastname)" ng-disabled="lastname == null && firstname == null && visanumber == null && date == null">Rechercher</button>
+	          		</div>
+				</form>
+				<br>
+			</div>
+			<br>	
+			<table class="table table-bordered">
+				<tr class="success">
+	 				<td class="text-center"><b>Nom</b></td>
+				  	<td class="text-center"><b>Pr&eacute;nom</b></td>
+				  	<td class="text-center"><b>Num&eacute;ro de passeport</b></td>
+				  	<td class="text-center"><b>Num&eacute;ro de Visa</b></td>
+				  	<td class="text-center"><b>Date de d&eacute;livrance</b></td>
+				</tr>
+				<tr ng-repeat = "attestation in listeAttestations" ng-click="consulter(attestation)">
+			      	<td>{{ attestation.lastname }}</td>
+			      	<td>{{ attestation.firstname }}</td>
+	 				<td>{{ attestation.passnumber }}</td>
+				  	<td>{{ attestation.visanumber }}</td>
+				  	<td>{{ attestation.date }}</td>
+				</tr>
+			</table>
+    </div>      
+</div>
